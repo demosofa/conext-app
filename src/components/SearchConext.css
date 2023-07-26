@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Noto+Sans:ital,wght@0,200;1,400&family=Poppins:ital,wght@1,500&display=swap');
+#root{
+    max-width: 100%;
+    padding-top: 20px;
+}
+
+.ant-card-body{
+    padding: 0 !important
+}
+
+.ant-card-cover{
+    margin: 20px !important;
+}
+
+
+.row-wrap{
+    margin-bottom: 25px;
+    margin-left: 25px;
+    
+}
+
+.row-wrap .card-wrap{
+    border: 1px solid #ddd;
+}
+
+.wrap-title{
+    text-decoration: underline;
+    font-size: .9125rem;
+    color: #171c32;
+    line-height: 22px;
+    font-family: 'Noto Sans', sans-serif;
+}
+.wrap-text-name{
+    font-weight: 750;
+    color: #171c32;
+}
+.wrap-text-p{
+    margin: 10px;
+}
+
+@media (max-width:1200px) {
+
+}
