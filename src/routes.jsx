@@ -3,6 +3,7 @@ import VoucherList from './pages/vourcher/VoucherList';
 import Layout from './layout';
 import SearchContext from 'components/SearchConext/SearchConext';
 import InvestmentPage from 'components/InvestmentPage/InvestmentPage';
+import AboutUs from 'components/AboutUs/AboutUs';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
@@ -28,6 +29,11 @@ const routes = [
       {
         path: '/investment',
         element: <InvestmentPage />,
+      },
+
+      {
+        path: '/about-us',
+        element: <AboutUs />,
       },
     ],
   },
