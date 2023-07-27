@@ -5,6 +5,7 @@ import { Cards } from './components/startup/card';
 import Layout from './layout';
 import VoucherList from './pages/vourcher/VoucherList';
 import { Contact } from 'pages/contact/contact';
+import Home from 'pages/home';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
@@ -12,6 +13,11 @@ const routes = [
     path: '/',
     element: <Layout />,
     children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+
       {
         path: '/startup',
         element: <Cards />,

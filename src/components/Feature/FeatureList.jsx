@@ -12,17 +12,19 @@ const FeatureList = ({ vouchers }) => {
           className="feature-list-container-item"
           key={index}
           style={{
-            padding: '15px',
+            padding: '1.875rem 0',
             textAlign: 'left',
             borderBottom: '0.1rem solid #ddd',
           }}
         >
-          <Col md={7} xs={24} style={{ margin: 'auto' }}>
+          <Col span={6} style={{ marginRight: 'auto' }}>
             <Image src={voucher.img} />
           </Col>
 
-          <Col md={14} xs={24}>
-            <h4 style={{ fontWeight: '500' }}>{voucher.title}</h4>
+          <Col span={17}>
+            <h4 style={{ fontWeight: '500', marginBottom: '.5em' }}>
+              {voucher.title}
+            </h4>
             <p className="voucher-text">Expried on : {voucher.exp}</p>
           </Col>
         </Row>

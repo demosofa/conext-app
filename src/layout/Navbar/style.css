@@ -38,6 +38,11 @@
   white-space: nowrap;
 }
 
+.block-nav span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .block-nav button {
   position: relative;
   padding-right: 2.1875rem;

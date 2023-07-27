@@ -54,6 +54,7 @@ export default function Footer() {
         ))}
       </Row>
       <Row
+        align={'middle'}
         justify="space-between"
         wrap={false}
         style={{ borderTop: '1px solid white', padding: '2.875rem 0' }}
@@ -64,7 +65,7 @@ export default function Footer() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            marginRight: '5vw',
+            marginRight: '4vw',
           }}
         >
           <Link to="/">
@@ -93,7 +94,10 @@ export default function Footer() {
                   span={6}
                   key={label}
                   style={{
-                    padding: '0.9375rem !important',
+                    paddingBottom: '0.9375rem',
+                    paddingTop: '0.9375rem',
+                    paddingRight: '0.9375rem !important',
+                    paddingLeft: '0.9375rem !important',
                     lineHeight: '.9375rem',
                   }}
                 >
