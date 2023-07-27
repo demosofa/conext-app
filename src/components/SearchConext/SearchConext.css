@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Domine&family=Noto+Sans:ital,wght@0,200;1,400&family=Poppins:ital,wght@1,500&display=swap');
 #root{
     max-width: 100%;
-    padding-top: 20px;
 }
 
 .ant-card-body{
