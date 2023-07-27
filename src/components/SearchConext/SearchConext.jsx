@@ -1,17 +1,16 @@
-import { Button, Card, Col, Row } from 'antd';
+import { Card, Col, Row } from 'antd';
 import './SearchConext.css';
 import useGet from 'hooks/useGet';
-import { useState } from 'react';
 
 export default function SearchContext() {
-  const [numDisplayed, setNumDisplayed] = useState(5);
+  // const [numDisplayed, setNumDisplayed] = useState(5);
 
-  const handleShowMore = () => {
-    setNumDisplayed((prevNum) => prevNum + 5);
-  };
+  // const handleShowMore = () => {
+  //   setNumDisplayed((prevNum) => prevNum + 5);
+  // };
   const { isLoading, data } = useGet('search-conext');
-  const totalVouchers = isLoading ? 0 : data.length;
-  const buttonVisible = numDisplayed < totalVouchers;
+  // const totalVouchers = isLoading ? 0 : data.length;
+  // const buttonVisible = numDisplayed < totalVouchers;
   return (
     <>
       <div className="wrap-container" style={{ marginTop: '100px' }}>
@@ -65,7 +64,7 @@ export default function SearchContext() {
                   </Col>
                 </>
               ))}
-          <Col className="btn-click" md={18}>
+          {/* <Col className="btn-click" md={18}>
             <div className="buttons">
               {buttonVisible && (
                 <Button
@@ -77,7 +76,7 @@ export default function SearchContext() {
                 </Button>
               )}
             </div>
-          </Col>
+          </Col> */}
         </Row>
       </div>
     </>

@@ -37,6 +37,9 @@
 
 .wrap-text-from{
     text-align: center;
+    font-size: .8125rem;
+    color: #646879;
+    line-height: 1.5em;
 }
 .wrap-text-p{
     margin: 10px;
