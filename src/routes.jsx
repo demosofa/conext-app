@@ -1,3 +1,4 @@
+import SearchContext from 'components/SearchConext/SearchConext';
 import { Cards } from './components/startup/card';
 import VoucherList from './pages/vourcher/VoucherList';
 import Layout from './layout';
