@@ -1,5 +1,5 @@
 import { Cards } from './components/startup/card';
-import VoucherList from './components/VoucherList';
+import VoucherList from './pages/vourcher/VoucherList';
 import Layout from './layout';
 
 /**@type {import('react-router-dom').RouteObject[]} */

@@ -20,6 +20,11 @@
   margin: 0;
 }
 
+.voucher-list-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .feature-list-container h3,
 .voucher-list-heading {
   font-size: 1.25rem;
@@ -66,51 +71,47 @@ img {
   }
 
   .div-button {
-    width: 100px;
+    width: 100%;
   }
 }
-
 
 .raise:hover,
 .raise:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  box-shadow: 0 0.5em 0.5em -0.4em #444343;
   transform: translateY(-0.25em);
 }
 
-$colors: (
-  raise: #444343, 
-);
-
-@each $button, $color in $colors {
-  .#{$button} {
-    --color: #{$color};
-    --hover: #{adjust-hue($color, 45deg)};
-  }
+.div-button {
+  margin-bottom: 15px;
 }
 
-button {  
+.button {
+  --color: #444343;
+  --hover: #5f5f5f;
+}
+
+button {
   color: var(--color);
   transition: 0.25s;
-  
-  &:hover{
-    color: #444343;
-    border-color: #444343;
-  }
+}
 
+button:hover {
+  color: #444343;
+  border-color: #444343;
 }
 
 .feature-list-container-item,
 .voucher-item-container {
- 
   opacity: 1;
-  transition: opacity 0.3s ease; 
+  transition: opacity 0.3s ease;
+}
 
-  &:hover {
-    opacity: 0.6; 
-    cursor: pointer;
-  }
+.feature-list-container-item:hover,
+.voucher-item-container:hover {
+  opacity: 0.6;
+  cursor: pointer;
 }
 
 .ant-image-mask-info {
   display: none;
-} 
+}
