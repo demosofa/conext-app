@@ -1,3 +1,9 @@
 .footer {
   background-color: #0e1b28;
 }
+
+.footer > div {
+  width: 90%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}

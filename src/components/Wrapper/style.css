@@ -1,0 +1,32 @@
+.container-antd {
+  width: 100%;
+  height: auto;
+}
+
+.container-antd > div {
+  margin: 0 auto !important;
+}
+
+@media (min-width: 576px) {
+  .container-antd > div {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-antd > div {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-antd > div {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-antd > div {
+    max-width: 1200px;
+  }
+}
