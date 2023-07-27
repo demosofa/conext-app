@@ -1,6 +1,9 @@
 import { Col, Row, Table } from 'antd';
 import './InvestmentsPage.css';
 import useGet from 'hooks/useGet';
+import { SearchInvestment } from './SearchInvestment/SearchInvestment';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const columns = [
   {
@@ -34,8 +37,8 @@ const columns = [
     key: 'Locations',
     render: (text, record) => (
       <ul>
-        {record.Locations.map((location) => (
-          <p key={location}>{location}</p>
+        {record.Locations.map((location, index) => (
+          <p key={index}>{location}</p>
         ))}
       </ul>
     ),
@@ -46,8 +49,8 @@ const columns = [
     key: 'Sectors',
     render: (text, record) => (
       <ul>
-        {record.Sectors.map((sector) => (
-          <p key={sector}>{sector}</p>
+        {record.Sectors.map((sector, index) => (
+          <p key={index}>{sector}</p>
         ))}
       </ul>
     ),
@@ -66,10 +69,36 @@ const columns = [
 
 const InvestmentPage = () => {
   const { isLoading, data } = useGet('investments');
-  console.log(data);
+  const [lstFilter, setLstFilter] = useState([]);
+
+  const [filterOptions, setFilterOptions] = useState({
+    category: '',
+    location: '',
+    search: '',
+  });
+
+  useEffect(() => {
+    if (!isLoading) {
+      const { category, location, search } = filterOptions;
+      const filteredData = data.filter(({ Locations, Sectors, Investor }) => {
+        return (
+          (category ? Sectors.includes(category) : true) &&
+          (location ? Locations.includes(location) : true) &&
+          Investor.title.toLowerCase().includes(search.toLowerCase())
+        );
+      });
+      setLstFilter(filteredData);
+    }
+  }, [isLoading, filterOptions]);
+
   return (
     <>
-      <Table columns={columns} dataSource={isLoading ? null : data} />;{' '}
+      <SearchInvestment setFilterOptions={setFilterOptions} />
+      <Table
+        columns={columns}
+        dataSource={isLoading ? null : lstFilter}
+        rowKey={(record) => record.Investor.img}
+      />
     </>
   );
 };
