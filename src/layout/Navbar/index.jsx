@@ -4,18 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 import SelectCity from 'components/SelectCity';
-
-const items = [
-  { label: 'home', to: '/' },
-  { label: 'event', to: 'event' },
-  { label: 'workspace', to: 'workspace' },
-  { label: 'vouchers', to: 'vouchers' },
-  { label: 'faqs', to: 'faqs' },
-  { label: 'hot needs', to: 'hot-needs' },
-  { label: 'term and policies', to: 'term-policies' },
-  { label: 'about us', to: 'about-us' },
-  { label: 'contact us', to: 'contact-us' },
-];
+import links from 'constants/links';
 
 const { useBreakpoint } = Grid;
 
@@ -51,13 +40,15 @@ export default function Navbar() {
       {lg ? null : (
         <div className="sidebar" style={{ right: open ? '0' : '-100%' }}>
           {md ? null : (
-            <SelectCity
+            <div
               style={{
                 padding: '0.8rem 0.6rem',
                 borderBottom: '1px solid #d8d8d8',
                 marginBottom: '1.1875rem',
               }}
-            />
+            >
+              <SelectCity />
+            </div>
           )}
           <Menu
             style={{
@@ -66,7 +57,7 @@ export default function Navbar() {
               backgroundColor: 'transparent',
             }}
             mode="vertical"
-            items={[...items, { label: 'Login', to: '' }].map(
+            items={[...links, { label: 'Login', to: '' }].map(
               ({ label, to }) => ({
                 key: to,
                 label: label.toUpperCase(),
