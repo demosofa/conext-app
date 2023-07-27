@@ -9,7 +9,7 @@ const VoucherItem = ({ voucher }) => {
       </Col>
       <Col md={16} sm={24} style={{ paddingLeft: '30px' }}>
         <h4>{voucher.title}</h4>
-        <p>
+        <p className="voucher-text">
           <strong>Exp:</strong> {voucher.exp}
           <span className="expired">Expired</span>
         </p>

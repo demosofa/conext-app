@@ -12,7 +12,7 @@ const FeatureList = ({ vouchers }) => {
           className="feature-list-container-item"
           key={index}
           style={{
-            padding: '10px',
+            padding: '15px',
             textAlign: 'left',
             borderBottom: '0.1rem solid #ddd',
           }}
@@ -23,7 +23,7 @@ const FeatureList = ({ vouchers }) => {
 
           <Col md={14} xs={24}>
             <h4 style={{ fontWeight: '500' }}>{voucher.title}</h4>
-            <p>Expried on : {voucher.exp}</p>
+            <p className="voucher-text">Expried on : {voucher.exp}</p>
           </Col>
         </Row>
       ))}
