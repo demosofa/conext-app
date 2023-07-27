@@ -4,6 +4,7 @@ import SearchContext from 'components/SearchConext/SearchConext';
 import { Cards } from './components/startup/card';
 import Layout from './layout';
 import VoucherList from './pages/vourcher/VoucherList';
+import { Contact } from 'pages/contact/contact';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
@@ -34,6 +35,11 @@ const routes = [
       {
         path: '/about-us',
         element: <AboutUs />,
+      },
+
+      {
+        path: '/contact-us',
+        element: <Contact />,
       },
     ],
   },
