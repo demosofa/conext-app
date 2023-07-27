@@ -8,7 +8,11 @@ const columns = [
     key: 'Investor',
     render: (text, record) => (
       <div>
-        <img src={record.Investor.img} alt={record.Investor.title} />
+        <img
+          src={record.Investor.img}
+          alt={record.Investor.title}
+          className="image-container"
+        />
         <div>
           <h3>{record.Investor.title}</h3>
           <p>{record.Investor.desc}</p>
