@@ -26,7 +26,10 @@ const VoucherList = () => {
 
   return (
     <div className="voucher-list-container">
-      <p style={{ fontSize: '18px', paddingTop: '20px' }}>
+      <p
+        className="voucher-text"
+        style={{ fontSize: '18px', padding: '30px 0' }}
+      >
         <Link to={'/'} style={{ color: 'black', textDecoration: 'none' }}>
           Home
         </Link>
