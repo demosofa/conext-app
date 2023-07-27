@@ -1,0 +1,29 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Noto+Sans:ital,wght@0,200;1,400&family=Poppins:ital,wght@1,500&display=swap');
+
+
+
+.about-text{
+    margin-bottom: 13px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+}
+
+.about-container{
+    height: 90vh;
+}
+
+.about-h1{
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.about-p{
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.about-link{
+    margin-right: 5px;
+}
