@@ -1,5 +1,6 @@
-import { Table } from 'antd';
+import { Col, Row, Table } from 'antd';
 import './InvestmentsPage.css';
+import useGet from 'hooks/useGet';
 
 const columns = [
   {
@@ -8,15 +9,22 @@ const columns = [
     key: 'Investor',
     render: (text, record) => (
       <div>
-        <img
-          src={record.Investor.img}
-          alt={record.Investor.title}
-          className="image-container"
-        />
-        <div>
-          <h3>{record.Investor.title}</h3>
-          <p>{record.Investor.desc}</p>
-        </div>
+        <Row>
+          <Col>
+            <img
+              src={record.Investor.img}
+              alt={record.Investor.title}
+              className="image-container"
+            />
+          </Col>
+          <Col span={1}></Col>
+          <Col span={10}>
+            <div>
+              <h3 className="title-h3">{record.Investor.title}</h3>
+              <p className="title-p">{record.Investor.desc}</p>
+            </div>
+          </Col>
+        </Row>
       </div>
     ),
   },
@@ -56,50 +64,14 @@ const columns = [
   },
 ];
 
-const data = [
-  {
-    key: '1',
-    Investor: {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/13446144_46460487_99662322_52002959.png',
-      title: 'Febe Venture',
-      desc: 'We apply a value-added approach, backing the best founders and offering our local bus...',
-    },
-    Locations: ['HCMC-Vietnam', 'Hanoi-Vietnam', 'Danang-Vietnam'],
-    Sectors: ['Ecommerce', 'Education', 'Logistic & Supply Chain'],
-    Range: [200000, 1000000],
-  },
-  {
-    Investor: {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/60204964_42958949_78595942_89188115.png',
-      title: 'Draper Startup House',
-      desc: 'We apply a value-added approach, backing the best founders and offering our local bus...',
-    },
-    Locations: ['HCMC-Vietnam', 'Hanoi-Vietnam', 'Danang-Vietnam'],
-    Sectors: ['Ecommerce', 'Education', 'Logistic & Supply Chain'],
-    Range: [200000, 1000000],
-  },
-  {
-    Investor: {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/54217015_67926000_75741021_90989591.png',
-      title: 'Block 71 Saigon',
-      desc: 'We apply a value-added approach, backing the best founders and offering our local bus...',
-    },
-    Locations: ['HCMC-Vietnam', 'Hanoi-Vietnam', 'Danang-Vietnam'],
-    Sectors: ['Ecommerce', 'Education', 'Logistic & Supply Chain'],
-    Range: [200000, 1000000],
-  },
-  {
-    Investor: {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/54725110_40920331_60225418_75369709.png',
-      title: 'Unorthodox Ventures',
-      desc: 'We apply a value-added approach, backing the best founders and offering our local bus...',
-    },
-    Locations: ['HCMC-Vietnam', 'Hanoi-Vietnam', 'Danang-Vietnam'],
-    Sectors: ['Ecommerce', 'Education', 'Logistic & Supply Chain'],
-    Range: [200000, 1000000],
-  },
-];
+const InvestmentPage = () => {
+  const { isLoading, data } = useGet('investments');
+  console.log(data);
+  return (
+    <>
+      <Table columns={columns} dataSource={isLoading ? null : data} />;{' '}
+    </>
+  );
+};
 
-const InvestmentsPage = () => <Table columns={columns} dataSource={data} />;
-
-export default InvestmentsPage;
+export default InvestmentPage;
