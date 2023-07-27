@@ -37,6 +37,8 @@
     margin: 10px;
 }
 
-@media (max-width:1200px) {
-
+@media (max-width:768px) {
+    .row-wrap{
+        margin-left: 0px;
+    }
 }
