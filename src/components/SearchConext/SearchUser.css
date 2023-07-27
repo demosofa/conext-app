@@ -62,8 +62,8 @@ h2 {
     display: none !important;
 }
 
-.ant-select-selector{
-    width: 300px !important;
+.option-select{
+    width: 400px;
 }
 .title-search-p {
     font-size: .9375rem;
