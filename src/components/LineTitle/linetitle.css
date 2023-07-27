@@ -1,0 +1,24 @@
+.line-title {
+  display: inline-block;
+  width: fit-content;
+  position: relative;
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+.line-title > span {
+  position: relative;
+  z-index: 1;
+}
+
+.line-title::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 0.3125rem;
+  background-color: #fed702;
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  z-index: 0;
+}

@@ -36,15 +36,15 @@ const VoucherList = () => {
         <CaretRightOutlined />{' '}
         <span style={{ color: 'grey' }}>Get Vouchers </span>
       </p>
-      <Row gutter={[30, 30]}>
-        <Col md={16}>
+      <Row gutter={[30, 30]} justify={'space-between'}>
+        <Col span={24} lg={16}>
           <h3 className="voucher-list-heading">Get Vouchers</h3>
           {lstVourcher.slice(0, numDisplayed).map((voucher, index) => (
             <VoucherItem key={index} voucher={voucher} />
           ))}
           <Row>
-            <Col md={3}></Col>
-            <Col className="div-button" md={18}>
+            <Col span={3}></Col>
+            <Col className="div-button" span={18}>
               <div className="buttons">
                 {isMoreButtonVisible && (
                   <Button
@@ -57,11 +57,11 @@ const VoucherList = () => {
                 )}
               </div>
             </Col>
-            <Col md={3}></Col>
+            <Col span={3}></Col>
           </Row>
         </Col>
-        <Col md={1}></Col>
-        <Col md={7}>
+
+        <Col span={24} lg={7}>
           <FeatureList vouchers={lstVourcher} />
         </Col>
       </Row>

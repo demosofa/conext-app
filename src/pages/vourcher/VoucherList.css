@@ -62,13 +62,17 @@ img {
   border-radius: 0.1875rem;
 }
 
+.voucher-text {
+  margin-bottom: 0.5em !important;
+}
+
 @media (max-width: 600px) {
   .voucher-text {
-    font-size: 300%;
+    font-size: 15px;
   }
 
   .voucher-item-container h4 {
-    font-size: 40px;
+    font-size: 20px;
   }
 
   .div-button {

@@ -3,11 +3,11 @@ import 'pages/vourcher/VoucherList.css';
 
 const VoucherItem = ({ voucher }) => {
   return (
-    <Row gutter={[30, 30]} className="voucher-item-container">
-      <Col md={8} sm={24}>
+    <Row className="voucher-item-container">
+      <Col md={8} span={24}>
         <Image src={voucher.img} />
       </Col>
-      <Col md={16} sm={24} style={{ paddingLeft: '30px' }}>
+      <Col md={15} span={24}>
         <h4>{voucher.title}</h4>
         <p className="voucher-text">
           <strong>Exp:</strong> {voucher.exp}

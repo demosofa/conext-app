@@ -2,16 +2,42 @@ import { Card, Col, Row } from 'antd';
 import './SearchConext.css';
 import useGet from 'hooks/useGet';
 import { SearchUser } from './SearchUser';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { useCity } from 'hooks/useCity';
 
 export default function SearchContext() {
   const { isLoading, data } = useGet('search-conext');
+  const { city } = useCity();
+  const [searchParams] = useSearchParams();
   const [lstFilter, setLstFilter] = useState([]);
+
+  useEffect(() => {
+    if (!isLoading) {
+      let filteredData;
+      if (searchParams.size) {
+        const { conextor, industry, search } = Object.fromEntries(searchParams);
+        filteredData = data.filter(
+          ({ 'key-search': keySearch, rule, name, city: storedCity }) => {
+            return (
+              (search
+                ? name.toLowerCase().includes(search.toLowerCase())
+                : true) &&
+              (conextor ? rule.includes(conextor) : true) &&
+              keySearch.includes(industry) &&
+              city === storedCity
+            );
+          }
+        );
+      } else filteredData = data;
+      setLstFilter(filteredData);
+    }
+  }, [isLoading, searchParams, city, data]);
 
   return (
     <>
       <div className="wrap-container">
-        <SearchUser data={data} setLstFilter={setLstFilter} />
+        <SearchUser searchParams={searchParams} />
         <Row justify="center">
           {isLoading
             ? null
