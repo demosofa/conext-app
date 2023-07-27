@@ -1,0 +1,25 @@
+body{
+    display: block;
+}
+
+.image-container{
+    height: 50px;
+    width: 50px;
+}
+
+.ant-table-cell{
+    font-weight: 500 !important;
+}
+.ant-table-thead{
+    background: #f4f3ee !important;
+}
+
+.title-h3{
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.title-p{
+    opacity: .6;
+    line-height: 1.5em;
+}

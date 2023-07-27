@@ -2,6 +2,7 @@ import { Cards } from './components/startup/card';
 import VoucherList from './pages/vourcher/VoucherList';
 import Layout from './layout';
 import SearchContext from 'components/SearchConext/SearchConext';
+import InvestmentPage from 'components/InvestmentPage/InvestmentPage';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
@@ -22,6 +23,11 @@ const routes = [
       {
         path: '/search',
         element: <SearchContext />,
+      },
+
+      {
+        path: '/investment',
+        element: <InvestmentPage />,
       },
     ],
   },
