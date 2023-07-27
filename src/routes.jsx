@@ -1,6 +1,7 @@
 import { Cards } from './components/startup/card';
 import VoucherList from './pages/vourcher/VoucherList';
 import Layout from './layout';
+import SearchContext from 'components/SearchConext/SearchConext';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
@@ -16,6 +17,11 @@ const routes = [
       {
         path: '/voucher',
         element: <VoucherList />,
+      },
+
+      {
+        path: '/search',
+        element: <SearchContext />,
       },
     ],
   },

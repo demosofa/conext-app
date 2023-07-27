@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine&family=Noto+Sans:ital,wght@0,200;1,400&family=Poppins:ital,wght@1,500&display=swap');
+#root{
+    max-width: 100%;
+}
+
+.ant-card-body{
+    padding: 0 !important
+}
+
+.ant-card-cover{
+    margin: 20px !important;
+}
+
+
+.row-wrap{
+    margin-bottom: 25px;
+    margin-left: 25px;
+    
+}
+
+.row-wrap .card-wrap{
+    border: 1px solid #ddd;
+}
+
+.wrap-title{
+    text-decoration: underline;
+    font-size: .9125rem;
+    color: #171c32;
+    line-height: 22px;
+    font-family: 'Noto Sans', sans-serif;
+}
+.wrap-text-name{
+    font-weight: 750;
+    color: #171c32;
+    text-align: center;
+}
+
+.wrap-text-from{
+    text-align: center;
+    font-size: .8125rem;
+    color: #646879;
+    line-height: 1.5em;
+}
+.wrap-text-p{
+    margin: 10px;
+}
+
+@media (max-width:768px) {
+    .row-wrap{
+        margin-left: 0px;
+    }
+}
+
+
+/*button*/
+.btn-click{
+    width: 300px;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em #444343;
+  transform: translateY(-0.25em);
+}
+.button {
+  --color: #444343;
+  --hover: #5F5F5F;
+}
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover {
+  color: #444343;
+  border-color: #444343;
+}
+ .more-button {
+  font-size: 0.9375rem;
+  border: 1px solid #ddd;
+  border-radius: 0.1875rem;
+  max-width: 50%;
+  height: 2.5rem;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-click{
+    margin-bottom: 30px;
+}
