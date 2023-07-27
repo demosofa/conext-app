@@ -98,29 +98,33 @@ export const SearchUser = ({ data, setLstFilter }) => {
       <h1 style={{ padding: '15px 0px 20px 57px' }}>Search User</h1>
       <div className="search-three">
         <p className="title-search-p">Conextors</p>
-        <Select
-          defaultValue="All Business type"
-          className="select-search"
-          onChange={handleSelectChangeContextor}
-        >
-          {listAllCategory.map((category, index) => (
-            <Option key={index.toString()} value={index ? category : ''}>
-              {category}
-            </Option>
-          ))}
-        </Select>
+        <div className="option-select">
+          <Select
+            defaultValue="All Business type"
+            className="select-search"
+            onChange={handleSelectChangeContextor}
+          >
+            {listAllCategory.map((category, index) => (
+              <Option key={index.toString()} value={index ? category : ''}>
+                {category}
+              </Option>
+            ))}
+          </Select>
+        </div>
         <p className="title-search-p">in somes industry:</p>
-        <Select
-          defaultValue="All status"
-          className="select-search"
-          onChange={handleSelectChangeIndustry}
-        >
-          {Object.entries(listStatus).map(([key, value], index) => (
-            <Option key={index.toString()} value={index ? value : ''}>
-              {key}
-            </Option>
-          ))}
-        </Select>
+        <div className="option-select">
+          <Select
+            defaultValue="All status"
+            className="select-search"
+            onChange={handleSelectChangeIndustry}
+          >
+            {Object.entries(listStatus).map(([key, value], index) => (
+              <Option key={index.toString()} value={index ? value : ''}>
+                {key}
+              </Option>
+            ))}
+          </Select>
+        </div>
         <div style={{ position: 'relative' }}>
           <Input
             className="input-search"
