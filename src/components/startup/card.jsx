@@ -1,99 +1,89 @@
-import { Card, Col, Row } from 'antd';
+import { Button, Card, Col, Row } from 'antd';
 import './card.css';
 import { SearchStartup } from '../search/searchStartup';
+import useGet from '../../hooks/useGet';
+import { useEffect, useState } from 'react';
+import { useCity } from 'hooks/useCity';
 
 export const Cards = () => {
-  //   const [startups, setStartup] = useState([]);
+  const { city } = useCity();
 
-  //   useEffect(() => {
-  //     fetch('https://64c07d080d8e251fd11220f8.mockapi.io/conext')
-  //       .then((res) => res.json())
-  //       .then((data) => setStartup(data));
-  //   }, []);
+  const { isLoading, data } = useGet('startup');
 
-  const listStartup = [
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/40333840_26875441_12729187_72109721.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Duong Minh Hung',
-        desc: 'Logistic & Supply Chain',
-      },
-    },
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/33412135_83262428_58486204_79077168.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Trinh Le',
-        desc: 'Education',
-      },
-    },
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/20822779_39080733_98940112_63525772.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Thinh Pham',
-        desc: 'Education',
-      },
-    },
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/18415641_57034120_75239829_97749801.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Quy Thi',
-        desc: 'Ecommerce',
-      },
-    },
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/54591211_48121044_40323256_90790517.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Vu Tran',
-        desc: 'Automotive',
-      },
-    },
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/68545835_48839481_38148750_28209533.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Jin Pham',
-        desc: 'Enterprise Solutions',
-      },
-    },
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/43947262_54772358_73387067_51732859.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Tam Pham',
-        desc: 'Manufacturing',
-      },
-    },
-    {
-      img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/41328237_84814025_42659943_49748377.png',
-      title: 'Shipway',
-      info: {
-        name: 'By Anh Le',
-        desc: 'Platform',
-      },
-    },
-  ];
+  const [buttonVisible, setButtonVisible] = useState(true);
+
+  const [visibleCards, setVisibleCards] = useState(6);
+
+  const [lstFilter, setLstFilter] = useState([]);
+
+  const [filterOptions, setFilterOptions] = useState({
+    category: '',
+    status: '',
+    search: '',
+  });
+
+  const handleShowMore = () => {
+    setVisibleCards(data.length);
+    setButtonVisible(false);
+  };
+
+  useEffect(() => {
+    if (!isLoading) {
+      const { category, status, search } = filterOptions;
+      const filteredData = data.filter(
+        ({ info: { desc, name }, title }) =>
+          name.toLowerCase().includes(search.toLowerCase()) &&
+          desc.includes(category) &&
+          title.includes(status)
+      );
+      setLstFilter(filteredData);
+    }
+  }, [isLoading, filterOptions]);
 
   return (
     <div>
-      {/* data={listStartup}  */}
-      <SearchStartup />
-      <Row gutter={[16, 16]}>
-        {listStartup.map((card) => (
-          <Col xs={24} sm={12} md={8} key={card.info.name}>
-            <CardItem
-              img={card.img}
-              title={card.title}
-              info={card.info.name}
-              education={card.info.desc}
-            />
-          </Col>
-        ))}
-      </Row>
+      <SearchStartup setFilterOptions={setFilterOptions} />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <Row gutter={[30, 30]} style={{ width: '90%' }}>
+          {isLoading
+            ? null
+            : lstFilter
+                .slice(0, visibleCards)
+                .filter((startup) => startup.city === city)
+                .map((startup) => (
+                  <Col span={6} xs={24} sm={12} md={8} key={startup.info.name}>
+                    <CardItem
+                      img={startup.img}
+                      title={startup.title}
+                      info={startup.info.name}
+                      education={startup.info.desc}
+                    />
+                  </Col>
+                ))}
+          {buttonVisible && (
+            <Col className="div-button" md={24}>
+              <div
+                className="buttons"
+                style={{ display: 'flex', justifyContent: 'center' }}
+              >
+                <Button
+                  block
+                  onClick={handleShowMore}
+                  className="more-button raise"
+                  style={{
+                    width: '300px',
+                    marginBottom: '10px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                >
+                  More
+                </Button>
+              </div>
+            </Col>
+          )}
+        </Row>
+      </div>
     </div>
   );
 };

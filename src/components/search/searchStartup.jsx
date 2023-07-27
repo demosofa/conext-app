@@ -1,10 +1,11 @@
 import { Button, Input, Select } from 'antd';
 import './searchStartup.css';
 import { Option } from 'antd/es/mentions';
-import { SearchOutlined } from '@ant-design/icons';
-// import { useState } from 'react';
+import { CaretRightOutlined, SearchOutlined } from '@ant-design/icons';
+import clone from 'utils/clone';
+import { Link } from 'react-router-dom';
 
-export const SearchStartup = () => {
+export const SearchStartup = ({ setFilterOptions }) => {
   // console.log(data);
   const listAllCategory = [
     'All category',
@@ -43,29 +44,40 @@ export const SearchStartup = () => {
     'Debt Financing',
     'IPO',
   ];
-  // const [input, setInput] = useState(data);
-  // const [searchTerm, setSearchTerm] = useState('');
-
-  // const handleSearch = (e) => {
-  //   const value = e.target.value;
-  //   setSearchTerm(value);
-  //   const filteredData = data?.filter((item) =>
-  //     item.toLowerCase().includes(value.toLowerCase())
-  //   );
-  //   setInput(filteredData);
-  // };
 
   const handleSelectChangeCategory = (value) => {
-    console.log('Selected value:', value);
+    setFilterOptions((prev) => {
+      const cloned = clone(prev);
+      cloned.category = value;
+      return cloned;
+    });
   };
 
   const handleSelectChangeStatus = (value) => {
-    console.log('Selected value:', value);
+    setFilterOptions((prev) => {
+      const cloned = clone(prev);
+      cloned.status = value;
+      return cloned;
+    });
+  };
+
+  const handleSelectChangeSearch = (e) => {
+    setFilterOptions((prev) => {
+      const cloned = clone(prev);
+      cloned.search = e.target.value;
+      return cloned;
+    });
   };
 
   return (
     <div className="search">
-      <h2>Startups</h2>
+      <p style={{ padding: '50px 0px 0px 57px', fontSize: '18px' }}>
+        <Link to={'/'} style={{ color: 'black' }}>
+          Home
+        </Link>
+        <CaretRightOutlined /> <span style={{ color: 'grey' }}> Startups </span>
+      </p>
+      <h1 style={{ padding: '15px 0px 20px 57px' }}>Startups</h1>
       <div className="search-three">
         <Select
           defaultValue="All category"
@@ -73,7 +85,7 @@ export const SearchStartup = () => {
           onChange={handleSelectChangeCategory}
         >
           {listAllCategory.map((category, index) => (
-            <Option key={index.toString()} value={category}>
+            <Option key={index.toString()} value={index ? category : ''}>
               {category}
             </Option>
           ))}
@@ -84,7 +96,7 @@ export const SearchStartup = () => {
           onChange={handleSelectChangeStatus}
         >
           {listStatus.map((status, index) => (
-            <Option key={index.toString()} value={status}>
+            <Option key={index.toString()} value={index ? status : ''}>
               {status}
             </Option>
           ))}
@@ -93,8 +105,7 @@ export const SearchStartup = () => {
           <Input
             className="input-search"
             placeholder="Search Startups"
-            // onChange={handleSearch}
-            // value={searchTerm}
+            onChange={handleSelectChangeSearch}
           ></Input>
           <SearchOutlined className="icon-search" />
         </div>
