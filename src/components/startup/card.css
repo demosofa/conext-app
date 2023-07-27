@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.zoom{
+    transition: transform .5s;
+}
+
+.zoom:hover{
+    transform: scale(1.02) rotate(1.1deg);
+}
+
+.title-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 23px;
+    padding-bottom: 15px;
+}
+
+.education-card{
+    text-align: left;
+    color: rgb(55, 152, 255);
+}
+
+.name-card{
+    text-align: left;
+    font-weight: bold;
+}
+
+.img-card{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.info-card{
+    display: flex;
+    padding-top: 15px;
+}
+
+.desc-card{
+    margin-left: 20px;
+    text-align: center;
+    padding-top: 7px;
+}
