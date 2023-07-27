@@ -10,6 +10,7 @@ const routes = [
     element: <Layout />,
     children: [
       {
+<<<<<<< HEAD
         path: '/startup',
         element: <Cards />,
       },
@@ -22,6 +23,10 @@ const routes = [
       {
         path: '/search',
         element: <SearchContext />,
+=======
+        path: '/investment',
+        element: <InvestmentsPage />,
+>>>>>>> a1a6673 (feat: route)
       },
     ],
   },
