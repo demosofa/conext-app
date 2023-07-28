@@ -1,5 +1,3 @@
-import InvestmentPage from 'components/InvestmentPage/InvestmentPage';
-
 import { Cards } from './components/startup/card';
 import Layout from './layout';
 import VoucherList from './pages/vourcher/VoucherList';
@@ -10,7 +8,12 @@ import CookiesPolicy from 'components/Cookies Policy/CookiesPolicy';
 import SearchContext from 'pages/SearchConext/SearchConext';
 import AboutUs from 'pages/AboutUs/AboutUs';
 import FAQPage from 'pages/FAQ/FAQPage';
+<<<<<<< HEAD
 import HotNeed from 'pages/hot-needs/HotNeed';
+=======
+import InvestmentPage from 'pages/InvestmentPage/InvestmentPage';
+import HotNeed from 'components/HotNeedSearch/HotNeed';
+>>>>>>> bbda0d0 (fix: source code)
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
