@@ -69,6 +69,7 @@ export default function CommunitySearch() {
         ))}
       </Select>
       <Link
+        className="button-search"
         to={{
           pathname: '/search',
           search: `?${createSearchParams(filterOptions)}`,

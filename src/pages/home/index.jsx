@@ -28,7 +28,7 @@ export default function Home() {
             {explories.map(({ label, img, to }) => (
               <Col key={label} span={12} md={6} style={{ overflow: 'hidden' }}>
                 <Link className="card-explore" to={to}>
-                  <Image preview={false} src={img} />
+                  <Image className="zoom" preview={false} src={img} />
                   <div className="card-info-explore">
                     <h3>{label}</h3>
                   </div>
