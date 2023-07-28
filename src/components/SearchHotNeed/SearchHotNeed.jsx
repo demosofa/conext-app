@@ -38,11 +38,12 @@ export const SearchHotNeed = ({ setSearch }) => {
       </div>
 
       <div className="search-three" style={{ alignItems: 'center' }}>
-        <Row className="search-content">
-          <Col sm={24} className="left-content">
+        <Row gutter={[16, 16]} className="search-content">
+          <Col sm={24} xs={24} md={18} className="left-content">
             <p className="search-content-title">
               Conext community will take care about your need
             </p>
+
             <div className="input-container">
               <Input
                 className="input-search"
@@ -58,8 +59,7 @@ export const SearchHotNeed = ({ setSearch }) => {
               />
             </div>
           </Col>
-
-          <Col sm={24} xs={24} className="description-search">
+          <Col sm={24} xs={24} md={5} className="description-search">
             <ModalSignInSignUp />
           </Col>
         </Row>
