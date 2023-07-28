@@ -6,9 +6,8 @@ import Layout from './layout';
 import VoucherList from './pages/vourcher/VoucherList';
 import { Contact } from 'pages/contact/contact';
 import Home from 'pages/home';
-import FAQPage from 'FAQ/FAQPage';
-import CookiesPolicy from 'Cookies Policy/CookiesPolicy';
-import HotNeed from 'pages/hot-needs/HotNeed';
+import FAQPage from 'components/FAQ/FAQPage';
+import CookiesPolicy from 'components/Cookies Policy/CookiesPolicy';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
