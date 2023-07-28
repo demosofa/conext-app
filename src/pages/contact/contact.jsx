@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import './contact.css';
 import { CaretRightOutlined } from '@ant-design/icons';
 import { Form, Input, Col, Row, Button } from 'antd';
 import { useState } from 'react';
+
 import Modal from 'antd/es/modal/Modal';
+import './contact.css';
 
 export const Contact = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -32,7 +33,7 @@ export const Contact = () => {
   };
 
   return (
-    <div>
+    <>
       <p style={{ padding: '30px 0px 0px 50px', fontSize: '18px' }}>
         <Link to={'/'} style={{ color: 'black' }}>
           Home
@@ -41,9 +42,9 @@ export const Contact = () => {
         <span style={{ color: 'grey' }}> Contact-us </span>
       </p>
       <h1 style={{ padding: '15px 0px 40px 50px' }}>Contact</h1>
-      <div>
-        <Row gutter={[16, 16]}>
-          <Col className="scroll-contact" xs={24} sm={24} md={12}>
+      <Row gutter={[16, 16]}>
+        <Col xs={24} sm={24} md={12}>
+          <div className="scroll-contact">
             <Form onFinish={showModal}>
               <p style={{ paddingLeft: 50, paddingBottom: 10 }}>
                 Address: 14 An Thuong 18, Ngu Hanh Son, Da Nang
@@ -157,41 +158,41 @@ export const Contact = () => {
                 </Button>
               </Form.Item>
             </Form>
-          </Col>
-          <Col className="map-contact" xs={24} sm={24} md={11}>
-            <Col style={{ left: 60 }} xs={24} sm={24} md={24}>
-              <Form style={{ maxWidth: '85%' }}>
-                <Form.Item
-                  name="intro"
-                  rules={[{ message: 'Please input Intro' }]}
-                >
-                  <Input.TextArea showCount maxLength={100} />
-                </Form.Item>
-              </Form>
-            </Col>
-          </Col>
-        </Row>
-        <Modal
-          title="Are you sure want to send this message to the Admin?"
-          visible={isModalVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-          footer={[
-            <Button key="back" onClick={handleCancel}>
-              Cancel
-            </Button>,
-            <Button key="submit" type="primary" onClick={showModal2}>
-              Yes, Send it!
-            </Button>,
-          ]}
-        ></Modal>
-        <Modal
-          title="Thank you for send information to us"
-          visible={isModalVisible2}
-          onOk={handleOk2}
-          cancelButtonProps={{ style: { display: 'none' } }}
-        ></Modal>
-      </div>
-    </div>
+          </div>
+        </Col>
+        <Col className="map-contact" xs={24} sm={24} md={11}>
+          <div className="mapouter">
+            <div className="gmap_canvas">
+              <iframe
+                width="100%"
+                height="450"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=116 Mai Thúc Lân, Bắc Mỹ Phú, Ngũ Hành Sơn, Đà Nẵng 550000, Việt Nam&t=&z=12&ie=UTF8&iwloc=&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </Col>
+      </Row>
+      <Modal
+        title="Are you sure want to send this message to the Admin?"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="back" onClick={handleCancel}>
+            Cancel
+          </Button>,
+          <Button key="submit" type="primary" onClick={showModal2}>
+            Yes, Send it!
+          </Button>,
+        ]}
+      ></Modal>
+      <Modal
+        title="Thank you for send information to us"
+        visible={isModalVisible2}
+        onOk={handleOk2}
+        cancelButtonProps={{ style: { display: 'none' } }}
+      ></Modal>
+    </>
   );
 };
