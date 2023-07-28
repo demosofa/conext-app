@@ -62,9 +62,9 @@ export const SearchUser = ({ searchParams }) => {
         <p className="title-search-p">Conextors</p>
         <Select
           defaultValue={
-            searchParams.size
+            searchParams.get('conextor')
               ? searchParams.get('conextor')
-              : 'All Business type'
+              : categories[0]
           }
           className="select-search"
           onChange={handleSelectChangeConextor}
@@ -78,13 +78,15 @@ export const SearchUser = ({ searchParams }) => {
         <p className="title-search-p">in somes industry:</p>
         <Select
           defaultValue={
-            searchParams.size ? searchParams.get('industry') : 'All status'
+            searchParams.get('industry')
+              ? searchParams.get('industry')
+              : statuses[Object.keys(statuses)[0]]
           }
           className="select-search"
           onChange={handleSelectChangeIndustry}
         >
           {Object.entries(statuses).map(([key, value], index) => (
-            <Option key={index.toString()} value={index ? value : ''}>
+            <Option key={index.toString()} value={value}>
               {key}
             </Option>
           ))}

@@ -5,6 +5,8 @@ import { SearchUser } from './SearchUser';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useCity } from 'hooks/useCity';
+import categories from 'constants/categories';
+import statuses from 'constants/statuses';
 
 export default function SearchContext() {
   const { isLoading, data } = useGet('search-conext');
@@ -15,21 +17,23 @@ export default function SearchContext() {
   useEffect(() => {
     if (!isLoading) {
       let filteredData;
-      if (searchParams.size) {
-        const { conextor, industry, search } = Object.fromEntries(searchParams);
-        filteredData = data.filter(
-          ({ 'key-search': keySearch, rule, name, city: storedCity }) => {
-            return (
-              (search
-                ? name.toLowerCase().includes(search.toLowerCase())
-                : true) &&
-              (conextor ? rule.includes(conextor) : true) &&
-              keySearch.includes(industry) &&
-              city === storedCity
-            );
-          }
-        );
-      } else filteredData = data;
+      const { conextor, industry, search } = Object.fromEntries(searchParams);
+      filteredData = data.filter(
+        ({ 'key-search': keySearch, rule, name, city: storedCity }) => {
+          return (
+            (search
+              ? name.toLowerCase().includes(search.toLowerCase())
+              : true) &&
+            (conextor && conextor != categories[0]
+              ? rule.includes(conextor)
+              : true) &&
+            (industry && industry != statuses[Object.keys(statuses)[0]]
+              ? keySearch.includes(industry)
+              : true) &&
+            city === storedCity
+          );
+        }
+      );
       setLstFilter(filteredData);
     }
   }, [isLoading, searchParams, city, data]);

@@ -45,7 +45,7 @@ export default function CommunitySearch() {
       </p>
       <Select
         size={'large'}
-        defaultValue={'All Business Type'}
+        defaultValue={categories[0]}
         style={{ width: '100%' }}
         onChange={handleSelectChangeConextor}
       >
@@ -58,7 +58,7 @@ export default function CommunitySearch() {
       <p>Looking for Conextors in</p>
       <Select
         size="large"
-        defaultValue={'All Expertise'}
+        defaultValue={statuses[Object.keys(statuses)[0]]}
         style={{ width: '100%' }}
         onChange={handleSelectChangeIndustry}
       >
