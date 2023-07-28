@@ -55,3 +55,11 @@ p {
   opacity: 1;
   transform: translateY(5px);
 }
+
+.zoom {
+  transition: all 0.4s linear;
+}
+
+.zoom:hover {
+  transform: rotate(1deg) scale(1.1);
+}
