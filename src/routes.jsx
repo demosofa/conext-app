@@ -6,6 +6,7 @@ import Layout from './layout';
 import VoucherList from './pages/vourcher/VoucherList';
 import { Contact } from 'pages/contact/contact';
 import Home from 'pages/home';
+import FAQPage from 'FAQ/FAQPage';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
@@ -46,6 +47,11 @@ const routes = [
       {
         path: '/contact-us',
         element: <Contact />,
+      },
+
+      {
+        path: '/faq-page',
+        element: <FAQPage />,
       },
     ],
   },
