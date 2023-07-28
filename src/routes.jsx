@@ -1,10 +1,10 @@
-import { Cards } from './components/startup/card';
 import Layout from './layout';
+
 import VoucherList from './pages/vourcher/VoucherList';
 import { Contact } from 'pages/contact/contact';
 import Home from 'pages/home';
-
-import CookiesPolicy from 'components/Cookies Policy/CookiesPolicy';
+import { Cards } from 'pages/startup/card';
+import CookiesPolicy from 'pages/Cookies Policy/CookiesPolicy';
 import SearchContext from 'pages/SearchConext/SearchConext';
 import AboutUs from 'pages/AboutUs/AboutUs';
 import FAQPage from 'pages/FAQ/FAQPage';
