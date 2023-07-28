@@ -1,7 +1,7 @@
 import { Image, Menu, Space, Grid } from 'antd';
 import XButton from 'components/XButton';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './style.css';
 import SelectCity from 'components/SelectCity';
 import links from 'constants/links';
@@ -16,11 +16,14 @@ export default function Navbar() {
     <>
       <section className="navbar">
         <div className="logo-city">
-          <Image
-            style={{ maxHeight: '50px' }}
-            preview={false}
-            src="https://conext-production.s3.ap-southeast-1.amazonaws.com/logo_header.png"
-          />
+          <Link to="/">
+            <Image
+              style={{ maxHeight: '50px' }}
+              preview={false}
+              src="https://conext-production.s3.ap-southeast-1.amazonaws.com/logo_header.png"
+            />
+          </Link>
+
           {md ? <SelectCity style={{ maxWidth: '250px' }} /> : null}
         </div>
 
@@ -59,10 +62,13 @@ export default function Navbar() {
             mode="vertical"
             items={[...links, { label: 'Login', to: '' }].map(
               ({ label, to }) => ({
-                key: to,
+                key: label + to,
                 label: label.toUpperCase(),
                 onClick: () => {
-                  if (label != 'Login') navigate(to);
+                  if (label != 'Login') {
+                    setOpen(false);
+                    navigate(to);
+                  }
                 },
                 style: {
                   fontSize: '.9375rem',

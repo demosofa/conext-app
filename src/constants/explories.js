@@ -12,6 +12,7 @@ export default [
   {
     label: 'Hot Needs',
     img: 'https://conext-production.s3.ap-southeast-1.amazonaws.com/bg_hot_need.png',
+    to: '/hot-needs',
   },
   {
     label: 'Get Vouchers',
