@@ -59,6 +59,10 @@ const routes = [
         path: '/policy',
         element: <CookiesPolicy />,
       },
+      {
+        path: '/hot-needs',
+        element: <HotNeed />,
+      },
     ],
   },
 ];
