@@ -22,6 +22,7 @@ p {
   color: #171c32;
   font-weight: bold;
   transition: transform 0.3s ease;
+  position: relative;
 }
 
 .button-search::before {
