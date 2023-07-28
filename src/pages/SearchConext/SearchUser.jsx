@@ -4,14 +4,14 @@ import { Option } from 'antd/es/mentions';
 import { CaretRightOutlined, SearchOutlined } from '@ant-design/icons';
 import clone from 'utils/clone';
 import { Link, createSearchParams, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import categories from 'constants/categories';
 import statuses from 'constants/statuses';
 
 export const SearchUser = ({ searchParams }) => {
   const [filterOptions, setFilterOptions] = useState({
-    conextor: '',
-    industry: '',
+    conextor: categories[0],
+    industry: statuses[Object.keys(statuses)[0]],
     search: '',
   });
 
@@ -48,6 +48,24 @@ export const SearchUser = ({ searchParams }) => {
     });
   };
 
+  useEffect(() => {
+    setFilterOptions((prev) => {
+      const cloned = clone(prev);
+      if (searchParams.get('conextor'))
+        cloned.conextor = searchParams.get('conextor');
+      else cloned.conextor = categories[0];
+
+      if (searchParams.get('industry'))
+        cloned.industry = searchParams.get('industry');
+      else cloned.industry = statuses[Object.keys(statuses)[0]];
+
+      if (searchParams.get('search'))
+        cloned.search = searchParams.get('search');
+
+      return cloned;
+    });
+  }, [searchParams]);
+
   return (
     <div className="search">
       <p style={{ padding: '50px 0px 0px 57px', fontSize: '18px' }}>
@@ -61,11 +79,7 @@ export const SearchUser = ({ searchParams }) => {
       <div className="search-three">
         <p className="title-search-p">Conextors</p>
         <Select
-          defaultValue={
-            searchParams.get('conextor')
-              ? searchParams.get('conextor')
-              : categories[0]
-          }
+          value={filterOptions.conextor}
           className="select-search"
           onChange={handleSelectChangeConextor}
         >
@@ -77,11 +91,7 @@ export const SearchUser = ({ searchParams }) => {
         </Select>
         <p className="title-search-p">in somes industry:</p>
         <Select
-          defaultValue={
-            searchParams.get('industry')
-              ? searchParams.get('industry')
-              : statuses[Object.keys(statuses)[0]]
-          }
+          value={filterOptions.industry}
           className="select-search"
           onChange={handleSelectChangeIndustry}
         >
@@ -93,10 +103,11 @@ export const SearchUser = ({ searchParams }) => {
         </Select>
         <div style={{ position: 'relative' }}>
           <Input
+            value={filterOptions.search}
             className="input-search"
             placeholder="Search Startups"
             onChange={handleSelectChangeSearch}
-          ></Input>
+          />
           <SearchOutlined className="icon-search" />
         </div>
         <div className="description-search">
