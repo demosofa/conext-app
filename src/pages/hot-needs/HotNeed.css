@@ -1,0 +1,19 @@
+.div-button {
+  text-align: center;
+}
+
+.more-button {
+  width: 100%;
+}
+
+.could-urgently-text {
+  font-size: 1.25rem;
+  border-bottom: 0.1875rem solid #ddd;
+  padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .could-urgently-text {
+    margin-bottom: 20px;
+  }
+}
