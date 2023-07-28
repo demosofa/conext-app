@@ -1,0 +1,48 @@
+/* Style for the card container */
+.hot-need-card {
+  border: none;
+  border-bottom: 1px solid rgb(221, 221, 221);
+  border-radius: 0;
+}
+
+.hot-need-title-link {
+  color: black;
+}
+
+.hot-need-title-link:hover,
+.hot-need-title-link:focus {
+  color: #40a9ff;
+}
+
+.hot-need-title {
+  font-size: 1.25rem;
+}
+
+.hot-need-discussion-tag {
+  margin-bottom: 10px;
+}
+.hot-need-avatar {
+  margin-bottom: 10px;
+}
+
+.hot-need-description {
+  margin-bottom: 10px;
+}
+
+.hot-need-deadline {
+  margin-bottom: 0;
+}
+
+.hot-need-expired-tag {
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+  .hot-need-description {
+    font-size: 0.8 rem;
+  }
+
+  .hot-need-title {
+    font-size: 1 rem;
+  }
+}
