@@ -8,11 +8,11 @@
     padding-left: 50px !important;
   }
 
-    .map-contact {
-        display: none !important;
-    }
-    .scroll-contact{
-        overflow-y: hidden;
-        max-height: none;
-    }
+  .map-contact {
+    display: none !important;
+  }
+  .scroll-contact {
+    overflow-y: hidden;
+    max-height: none;
+  }
 }
