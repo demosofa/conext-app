@@ -45,7 +45,6 @@
 
 .block-nav button {
   position: relative;
-  padding-right: 2.1875rem;
   background-color: #fed702;
   color: #171c32;
   box-shadow: 0 0.125rem 0.5rem #00000026;
@@ -54,10 +53,12 @@
   font-family: Avenir-Black;
   font-size: 0.9375rem;
   padding: 0.75rem 1.125rem 0.6875rem;
+  padding-right: 2.1875rem;
   text-transform: uppercase;
   outline: none;
   white-space: nowrap;
   box-shadow: none !important;
+  font-weight: 400;
 }
 
 .block-nav button:hover:before {

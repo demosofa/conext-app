@@ -27,7 +27,7 @@ export default function Navbar() {
         {lg ? (
           <Space className="block-nav">
             <p>Become a CoNEXTor to approach digital community in the city</p>
-            <button>Join CoNEXT</button>
+            <button className="button-search">Join CoNEXT</button>
             <p>
               if you already have account please <span>Login</span>
             </p>

@@ -25,13 +25,8 @@
   position: relative;
   display: block;
   overflow: hidden;
-  border-radius: 0.1875rem;
+  border-radius: 4px;
   height: 250px;
-}
-
-.homepage .card-explore:hover img {
-  transition: transform 0.5s;
-  transform: scale(1.02) rotate(1.1deg);
 }
 
 .homepage .card-info-explore {
@@ -45,8 +40,9 @@
 }
 
 .homepage .card-info-explore > h3 {
-  font-size: 1.25rem;
+  font-size: 16px;
   color: #fff;
   text-align: center;
   margin: 0;
+  font-weight: 500;
 }
