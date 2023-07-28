@@ -66,6 +66,7 @@ h2 {
 }
 
 .button-search:hover {
+  background-color: #fed702 !important;
   border-width: 0 !important;
   color: inherit !important;
   transform: translateY(-5px);
