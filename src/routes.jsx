@@ -10,6 +10,7 @@ import AboutUs from 'pages/AboutUs/AboutUs';
 import FAQPage from 'pages/FAQ/FAQPage';
 import HotNeed from 'pages/hot-needs/HotNeed';
 import InvestmentPage from 'pages/InvestmentPage/InvestmentPage';
+import NotExist from 'pages/NotExist';
 
 /**@type {import('react-router-dom').RouteObject[]} */
 const routes = [
@@ -65,6 +66,8 @@ const routes = [
         path: '/hot-needs',
         element: <HotNeed />,
       },
+
+      { path: '*', element: <NotExist /> },
     ],
   },
 ];
