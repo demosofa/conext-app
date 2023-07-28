@@ -1,13 +1,15 @@
-import AboutUs from 'components/AboutUs/AboutUs';
 import InvestmentPage from 'components/InvestmentPage/InvestmentPage';
-import SearchContext from 'components/SearchConext/SearchConext';
+
 import { Cards } from './components/startup/card';
 import Layout from './layout';
 import VoucherList from './pages/vourcher/VoucherList';
 import { Contact } from 'pages/contact/contact';
 import Home from 'pages/home';
-import FAQPage from 'components/FAQ/FAQPage';
+
 import CookiesPolicy from 'components/Cookies Policy/CookiesPolicy';
+import SearchContext from 'pages/SearchConext/SearchConext';
+import AboutUs from 'pages/AboutUs/AboutUs';
+import FAQPage from 'pages/FAQ/FAQPage';
 import HotNeed from 'pages/hot-needs/HotNeed';
 
 /**@type {import('react-router-dom').RouteObject[]} */

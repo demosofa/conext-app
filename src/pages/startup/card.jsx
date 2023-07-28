@@ -1,9 +1,10 @@
 import { Button, Card, Col, Row } from 'antd';
 import './card.css';
-import { SearchStartup } from '/ex-reactjs/conext-app/src/components/search/searchStartup';
+
 import useGet from '../../hooks/useGet';
 import { useEffect, useState } from 'react';
 import { useCity } from 'hooks/useCity';
+import { SearchStartup } from 'components/search/searchStartup';
 
 export const Cards = () => {
   const { city } = useCity();
