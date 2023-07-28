@@ -1,4 +1,4 @@
-import { Col, Image, Row } from 'antd';
+import { Col, Row } from 'antd';
 import CommunityPeople from 'components/CommunityPeople/CommunityPeople';
 import CommunitySearch from 'components/CommunitySearch/CommunitySearch';
 import useGet from 'hooks/useGet';
@@ -28,7 +28,7 @@ export default function Home() {
             {explories.map(({ label, img, to }) => (
               <Col key={label} span={12} md={6} style={{ overflow: 'hidden' }}>
                 <Link className="card-explore" to={to}>
-                  <Image className="zoom" preview={false} src={img} />
+                  <img className="zoom" src={img} />
                   <div className="card-info-explore">
                     <h3>{label}</h3>
                   </div>

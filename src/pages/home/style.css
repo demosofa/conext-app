@@ -29,6 +29,11 @@
   height: 250px;
 }
 
+.homepage .card-explore > img {
+  width: 100%;
+  height: auto;
+}
+
 .homepage .card-info-explore {
   width: 100%;
   position: absolute;

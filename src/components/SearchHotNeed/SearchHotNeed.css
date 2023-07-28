@@ -75,22 +75,6 @@
   text-align: center;
 }
 
-.button-search {
-  background-color: #fed702;
-  color: black;
-  font-weight: bold;
-  transition: transform 0.3s ease;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.button-search:hover {
-  background-color: #fed702;
-  color: inherit !important;
-  border-color: #fed702 !important;
-  transform: translateY(-3px);
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
-}
-
 .description-search .facebook-button,
 .description-search .google-button {
   width: 45%;

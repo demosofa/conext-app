@@ -3,7 +3,7 @@ import 'pages/vourcher/VoucherList.css';
 
 const VoucherItem = ({ voucher }) => {
   return (
-    <Row className="voucher-item-container">
+    <Row className="voucher-item-container" justify={'space-between'}>
       <Col md={8} span={24}>
         <Image src={voucher.img} />
       </Col>
